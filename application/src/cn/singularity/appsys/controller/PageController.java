@@ -14,7 +14,13 @@ public class PageController {
 	
 	@RequestMapping("/{page}")
 	public String page(@PathVariable String page) {
+		System.out.println(124124);
 		return page;
 	}
 
+	@RequestMapping("/{page}")
+	public String asd(@PathVariable String page) {
+		System.out.println(124124);
+		return page;
+	}
 }
