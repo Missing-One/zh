@@ -9,12 +9,7 @@
 	<!-- spring监听配置 BEGIN -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>
-<!-- 			classpath:spring/application.xml, -->
-			classpath:spring/application-dao.xml,
-			classpath:spring/application-service.xml,
-			classpath:spring/application-trans.xml
-		</param-value>
+		<param-value>classpath:app.xml</param-value>
 	</context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -28,7 +23,7 @@
 		<!-- 加载配置文件 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/application-mvc.xml</param-value>
+			<param-value>classpath:app-mvc.xml</param-value>
 		</init-param>
 	</servlet>
 	<servlet-mapping>
