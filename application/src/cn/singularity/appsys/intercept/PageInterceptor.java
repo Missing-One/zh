@@ -21,13 +21,14 @@ public class PageInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-			
+		System.out.print("后拦截 :url = ");
+		System.out.print(request.getRequestURI());
 		//如果是静态文件则不拦截
 		if (request.getRequestURI().indexOf("/statics/") >= 0) {
 			return;
 		}
-		
 		if (modelAndView != null) {
+			System.out.println("viewname = " + modelAndView.getViewName());
 			String prefix = "";
 			if (modelAndView.getViewName().indexOf("redirect:") == 0
 				|| modelAndView.getViewName().indexOf("forward:") == 0) {
@@ -41,11 +42,9 @@ public class PageInterceptor extends HandlerInterceptorAdapter{
 				return;
 			}
 			modelAndView.setViewName(prefix + modelAndView.getViewName());
-			
 		}
-		System.out.print("后拦截 :url = ");
-		System.out.print(request.getRequestURI());
-		System.out.println(":viewName = " + modelAndView.getViewName());
+		
+		
 	}
 
 

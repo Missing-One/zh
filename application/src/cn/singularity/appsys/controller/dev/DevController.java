@@ -21,4 +21,9 @@ public class DevController {
 		System.out.println("devlog");
 		return "main";
 	}
+	
+	@RequestMapping("/main")
+	public String main () {
+		return "main";
+	}
 }
