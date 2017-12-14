@@ -11,28 +11,15 @@
             http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd 
             http://www.springframework.org/schema/context 
             http://www.springframework.org/schema/context/spring-context.xsd">  
-            
+    <!-- 扫描业务类 -->
     <context:component-scan base-package="cn.singularity.appsys.service.impl"/> 
   
     <!-- 事务管理 -->
    	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
    		<property name="dataSource" ref="dataSource"/>
    	</bean> 
-   	
+   	<!-- 声明式事务 -->
    	<tx:annotation-driven transaction-manager="transactionManager"/>
    	
-   	<!-- AOP 事务处理 开始 -->    
-<!-- 	<aop:aspectj-autoproxy /> -->
-<!-- 	<aop:config  proxy-target-class="true"> -->
-<!-- 		<aop:pointcut expression="execution(* *cn.smbms.service..*(..))" id="transService"/> -->
-<!-- 		<aop:advisor pointcut-ref="transService" advice-ref="txAdvice" /> -->
-<!-- 	</aop:config>  -->
-<!-- 	<tx:advice id="txAdvice" transaction-manager="transactionManager">   -->
-<!-- 	    <tx:attributes>   -->
-<!-- 	       <tx:method name="smbms*"  propagation="REQUIRED" rollback-for="Exception"  /> -->
-<!-- 	    </tx:attributes>   -->
-<!-- 	</tx:advice>  -->
-	<!-- AOP 事务处理 结束 -->
-	
     
 </beans>
