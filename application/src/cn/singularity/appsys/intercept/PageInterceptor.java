@@ -16,8 +16,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
  * @author zh
  */
 public class PageInterceptor extends HandlerInterceptorAdapter{
-	private final String bkPrefix = "developer/";
-	private final String devPrefix = "developer/";
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
@@ -28,20 +26,23 @@ public class PageInterceptor extends HandlerInterceptorAdapter{
 			return;
 		}
 		if (modelAndView != null) {
-			System.out.println("viewname = " + modelAndView.getViewName());
+			System.out.println(" --- viewname = " + modelAndView.getViewName());
 			String prefix = "";
 			if (modelAndView.getViewName().indexOf("redirect:") == 0
-				|| modelAndView.getViewName().indexOf("forward:") == 0) {
+				|| modelAndView.getViewName().indexOf("forward:") == 0
+				|| request.getRequestURI().indexOf(".") >= 0) {
 				return;
 			}
+			
 			if (request.getRequestURI().indexOf("/dev/") >= 0) {
-				prefix = "backend/";
+				prefix = "developer/";
 			} else if (request.getRequestURI().indexOf("/back/") >= 0) {
 				prefix = "backend/";
 			} else {
 				return;
 			}
 			modelAndView.setViewName(prefix + modelAndView.getViewName());
+			System.out.println("set viewname = " + modelAndView.getViewName());
 		}
 		
 		
