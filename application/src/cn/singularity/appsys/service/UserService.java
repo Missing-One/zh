@@ -14,4 +14,9 @@ public interface UserService {
 	 * @author mk
 	 */
 	User login(User user);
+	
+	/**
+	 * 获取
+	 */
+	User getUserById(Long id);
 }
