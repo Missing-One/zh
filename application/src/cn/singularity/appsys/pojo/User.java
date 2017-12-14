@@ -3,7 +3,8 @@ package cn.singularity.appsys.pojo;
 import java.util.Date;
 
 public class User {
-    private Long id;
+
+	private Long id;
 
     private String usercode;
 
@@ -92,4 +93,10 @@ public class User {
     public void setUserpassword(String userpassword) {
         this.userpassword = userpassword == null ? null : userpassword.trim();
     }
+    @Override
+	public String toString() {
+		return "User [id=" + id + ", usercode=" + usercode + ", username=" + username + ", usertype=" + usertype
+				+ ", createdby=" + createdby + ", creationdate=" + creationdate + ", modifyby=" + modifyby
+				+ ", modifydate=" + modifydate + ", userpassword=" + userpassword + "]";
+	}
 }

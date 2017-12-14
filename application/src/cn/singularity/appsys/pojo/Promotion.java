@@ -112,4 +112,13 @@ public class Promotion {
     public void setModifydate(Date modifydate) {
         this.modifydate = modifydate;
     }
+
+	@Override
+	public String toString() {
+		return "Promotion [id=" + id + ", appid=" + appid + ", adpicpath=" + adpicpath + ", adpv=" + adpv
+				+ ", carouselposition=" + carouselposition + ", starttime=" + starttime + ", endtime=" + endtime
+				+ ", createdby=" + createdby + ", creationdate=" + creationdate + ", modifyby=" + modifyby
+				+ ", modifydate=" + modifydate + "]";
+	}
+    
 }

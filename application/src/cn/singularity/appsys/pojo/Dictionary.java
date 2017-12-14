@@ -92,4 +92,12 @@ public class Dictionary {
     public void setModifydate(Date modifydate) {
         this.modifydate = modifydate;
     }
+
+	@Override
+	public String toString() {
+		return "Dictionary [id=" + id + ", typecode=" + typecode + ", typename=" + typename + ", valueid=" + valueid
+				+ ", valuename=" + valuename + ", createdby=" + createdby + ", creationdate=" + creationdate
+				+ ", modifyby=" + modifyby + ", modifydate=" + modifydate + "]";
+	}
+    
 }

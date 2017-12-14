@@ -102,4 +102,12 @@ public class DevUser {
     public void setModifydate(Date modifydate) {
         this.modifydate = modifydate;
     }
+
+	@Override
+	public String toString() {
+		return "DevUser [id=" + id + ", devcode=" + devcode + ", devname=" + devname + ", devpassword=" + devpassword
+				+ ", devemail=" + devemail + ", devinfo=" + devinfo + ", createdby=" + createdby + ", creationdate="
+				+ creationdate + ", modifyby=" + modifyby + ", modifydate=" + modifydate + "]";
+	}
+    
 }

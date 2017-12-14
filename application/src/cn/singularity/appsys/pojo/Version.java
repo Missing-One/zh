@@ -133,4 +133,13 @@ public class Version {
     public void setApkfilename(String apkfilename) {
         this.apkfilename = apkfilename == null ? null : apkfilename.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Version [id=" + id + ", appid=" + appid + ", versionno=" + versionno + ", versioninfo=" + versioninfo
+				+ ", publishstatus=" + publishstatus + ", downloadlink=" + downloadlink + ", versionsize=" + versionsize
+				+ ", createdby=" + createdby + ", creationdate=" + creationdate + ", modifyby=" + modifyby
+				+ ", modifydate=" + modifydate + ", apklocpath=" + apklocpath + ", apkfilename=" + apkfilename + "]";
+	}
+    
 }
