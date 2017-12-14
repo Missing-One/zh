@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package cn.singularity.appsys.controller;
 
 import org.springframework.stereotype.Controller;
@@ -6,16 +5,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 页面控制器
- * 负责完成页面的跳转 
+ * 椤甸潰鎺у埗鍣�
+ * 璐熻矗瀹屾垚椤甸潰鐨勮烦杞�
  * @author zh
  */
 @Controller
 public class PageController {
 	
 	/**
-	 * 默认根路径,跳转到主页
-	 * @return 主页
+	 * 榛樿鏍硅矾寰�璺宠浆鍒颁富椤�
+	 * @return 涓婚〉
 	 * @author zh
 	 */
 	@RequestMapping("/")
@@ -24,9 +23,9 @@ public class PageController {
 	}
 	
 	/**
-	 * 使用rest风格来跳转到相应的页面
-	 * @param page	页面的逻辑视图名
-	 * @return 页面的逻辑视图名
+	 * 浣跨敤rest椋庢牸鏉ヨ烦杞埌鐩稿簲鐨勯〉闈�
+	 * @param page	椤甸潰鐨勯�杈戣鍥惧悕
+	 * @return 椤甸潰鐨勯�杈戣鍥惧悕
 	 * @author zh
 	 */
 	@RequestMapping("/{page}")
@@ -44,31 +43,3 @@ public class PageController {
 		return "backendlogin";
 	}
 }
-=======
-package cn.singularity.appsys.controller;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-public class PageController {
-	
-	@RequestMapping("/")
-	public String index() {
-		return "index";
-	}
-	
-	@RequestMapping("/{page}")
-	public String page(@PathVariable String page) {
-		System.out.println(124124);
-		return page;
-	}
-
-	@RequestMapping("/{page}")
-	public String asd(@PathVariable String page) {
-		System.out.println(124124);
-		return page;
-	}
-}
->>>>>>> 95a4b799f60da1efca4bfda87977aaea9475cbee
