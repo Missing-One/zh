@@ -29,26 +29,23 @@ public class PageInterceptor extends HandlerInterceptorAdapter{
 		
 		if (modelAndView != null) {
 			String prefix = "";
-			if (modelAndView.getViewName().indexOf("redirect:") == 0){
-				prefix = "redirect: /dev/" + modelAndView.getViewName().substring(9).trim();
-			} else if(modelAndView.getViewName().indexOf("forward:") == 0) {
-				prefix = "forward: /back/" + modelAndView.getViewName().substring(8).trim();
-			} else  if (request.getRequestURI().indexOf("/dev/") >= 0) {
+			if (modelAndView.getViewName().indexOf("redirect:") == 0
+				|| modelAndView.getViewName().indexOf("forward:") == 0) {
+				return;
+			}
+			if (request.getRequestURI().indexOf("/dev/") >= 0) {
 				prefix = "backend/";
 			} else if (request.getRequestURI().indexOf("/back/") >= 0) {
 				prefix = "backend/";
 			} else {
 				return;
 			}
-			System.out.println("viewName=" + prefix);
-			modelAndView.setViewName(prefix);
+			modelAndView.setViewName(prefix + modelAndView.getViewName());
+			
 		}
-		
 		System.out.print("后拦截 :url = ");
-		System.out.println(request.getRequestURI());
-		System.out.print(":--dev = " + (request.getRequestURI().indexOf("/dev/") >= 0));
-		System.out.println(":--back = " + (request.getRequestURI().indexOf("/back/") >= 0));
-//		System.out.println("viewname: " + modelAndView != null ? modelAndView.getViewName() : "");
+		System.out.print(request.getRequestURI());
+		System.out.println(":viewName = " + modelAndView.getViewName());
 	}
 
 
