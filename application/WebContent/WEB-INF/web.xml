@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <!-- log4j2日志配置  BEGIN-->
@@ -7,15 +6,8 @@
 	    <param-value>classpath:logger/log4j2.xml</param-value>
 	</context-param>
 	<!-- log4j2日志配置  END-->
-	<!-- spring监听配置 BEGIN -->
-=======
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>application</display-name>
-  	
 	
-	<!-- spring监听配置 begin -->
->>>>>>> 95a4b799f60da1efca4bfda87977aaea9475cbee
+	<!-- spring监听配置 BEGIN -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:app.xml</param-value>
@@ -23,15 +15,9 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-<<<<<<< HEAD
 	<!-- spring监听配置 END -->
 	
-	<!-- springMVC 过滤器配置  BEGIN -->
-=======
-	<!-- spring监听配置 end -->
-	
 	<!-- springMVC 过滤器配置  begin -->
->>>>>>> 95a4b799f60da1efca4bfda87977aaea9475cbee
 	<servlet>
 		<servlet-name>springMVC</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -45,15 +31,9 @@
 		<servlet-name>springMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-<<<<<<< HEAD
 	<!-- springMVC 过滤器配置  END -->
 	
-	<!-- 乱码过滤器 BEGIN-->
-=======
-	<!-- springMVC 过滤器配置  end -->
-	
 	<!-- 乱码过滤器 -->
->>>>>>> 95a4b799f60da1efca4bfda87977aaea9475cbee
 	<filter>				
 		<filter-name>springUtf8Encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -69,10 +49,6 @@
 	<filter-mapping>  
         <filter-name>springUtf8Encoding</filter-name>  
         <url-pattern>/*</url-pattern>  
-<<<<<<< HEAD
     </filter-mapping> 
     <!-- 乱码过滤器 END-->
-=======
-    </filter-mapping>
->>>>>>> 95a4b799f60da1efca4bfda87977aaea9475cbee
 </web-app>
