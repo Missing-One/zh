@@ -13,6 +13,12 @@
     <result column="modifyBy" property="modifyby" jdbcType="BIGINT" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <select id="selectOne" parameterType="cn.singularity.appsys.pojo.DevUser" resultType="cn.singularity.appsys.pojo.DevUser">
+  	select <include refid="Base_Column_List" /> from dev_user
+  	where devCode = #{devcode} and devPassword = #{devpassword}
+  </select>
+  
   <sql id="Base_Column_List" >
     id, devCode, devName, devPassword, devEmail, devInfo, createdBy, creationDate, modifyBy, 
     modifyDate
