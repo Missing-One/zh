@@ -13,12 +13,10 @@
     <result column="userPassword" property="userpassword" jdbcType="VARCHAR" />
   </resultMap>
   
-  <sql id="selectOne" paramType="cn.singularity.appsys.pojo.User" resultType="cn.singularity.appsys.pojo.User" >
+  <select id="selectOne" parameterType="cn.singularity.appsys.pojo.User" resultType="cn.singularity.appsys.pojo.User" >
   	select <include refid="Base_Column_List" /> from backend_user
-  	where userCode = #{usercode,jdbcType=VARCHAR} and userPassword = #{userpassword,,jdbcType=VARCHAR}
-  </sql>
-  
-  
+  	where userCode = #{usercode,jdbcType=VARCHAR} and userPassword = #{userpassword,jdbcType=VARCHAR}
+  </select>
   
   
   
