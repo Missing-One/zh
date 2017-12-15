@@ -9,7 +9,7 @@ import cn.singularity.appsys.mapper.DevUserMapper;
 import cn.singularity.appsys.pojo.DevUser;
 import cn.singularity.appsys.service.DevUserService;
 /***
- * 
+ * 开发者账户服务
  * @author zh
  */
 @Service
@@ -19,6 +19,11 @@ public class DevUserServiceImpl implements DevUserService {
 	@Autowired
 	DevUserMapper devUserMapper;
 	
+	/**
+	 * 根据账号和密码匹配用户
+	 * @param devUser devCode和devPassword 两个属性不能为空
+	 * @author zh
+	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public DevUser login(DevUser devUser) {
