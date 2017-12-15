@@ -21,7 +21,7 @@ public class DevUserServiceImpl implements DevUserService {
 	
 	/**
 	 * 根据账号和密码匹配用户
-	 * @param devUser devCode和devPassword 两个属性不能为空
+	 * @param devUser devCode和devPassword 两个属性不能为空,登陆必须项
 	 * @author zh
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
