@@ -9,13 +9,11 @@ public interface InfoMapper {
 	
 	/**
 	 * 获取app信息的总数
-	 * @author zh
 	 */
 	int count();
 	/**
 	 * 分页查询
 	 * @return
-	 * @author zh
 	 */
 	List<Info> getList(PageUtil pageUtil);
 	

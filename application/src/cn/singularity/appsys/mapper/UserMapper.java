@@ -4,7 +4,6 @@ import cn.singularity.appsys.pojo.User;
 
 public interface UserMapper {
 	
-	//@author zh
 	User selectOne(User record);
 	
     int deleteByPrimaryKey(Long id);

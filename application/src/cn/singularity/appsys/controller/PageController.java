@@ -15,7 +15,6 @@ public class PageController {
 	/**
 	 * 榛樿鏍硅矾寰�璺宠浆鍒颁富椤�
 	 * @return 涓婚〉
-	 * @author zh
 	 */
 	@RequestMapping("/")
 	public String index(){
@@ -26,7 +25,6 @@ public class PageController {
 	 * 浣跨敤rest椋庢牸鏉ヨ烦杞埌鐩稿簲鐨勯〉闈�
 	 * @param page	椤甸潰鐨勯�杈戣鍥惧悕
 	 * @return 椤甸潰鐨勯�杈戣鍥惧悕
-	 * @author zh
 	 */
 	@RequestMapping("/{page}")
 	public String page(@PathVariable String page){
@@ -34,10 +32,17 @@ public class PageController {
 		return page;
 	}
 	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/dev-login")
 	public String dev_login(){
 		return "devlogin";
 	}
+	
+	/**
+	 * @return
+	 */
 	@RequestMapping("/back-login")
 	public String backend_login(){
 		return "backendlogin";

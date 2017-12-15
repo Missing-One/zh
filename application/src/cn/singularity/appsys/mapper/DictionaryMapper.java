@@ -7,12 +7,10 @@ import cn.singularity.appsys.pojo.Dictionary;
 public interface DictionaryMapper {
 	
 	/**
-	 * @author zh
 	 */
 	List<Dictionary> getAllStatuse();
 	
 	/**
-	 * @author zh
 	 */
 	List<Dictionary> getAllFlatform();
 	

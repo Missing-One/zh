@@ -29,7 +29,6 @@ public class BackController {
 	/**
 	 * 登陆功能实现
 	 * @return 
-	 * @author zh
 	 */
 	@RequestMapping("/dologin")
 	public String doLogin(User user,Model model) {
@@ -46,6 +45,11 @@ public class BackController {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("/logout")
 	public String logout(SessionStatus session) {
 		session.setComplete();
@@ -55,7 +59,6 @@ public class BackController {
 	/**
 	 * 后台主页
 	 * @return
-	 * @author zh
 	 */
 	@RequestMapping("/main")
 	public String main () {

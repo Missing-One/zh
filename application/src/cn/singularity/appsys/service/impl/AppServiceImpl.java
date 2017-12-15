@@ -8,8 +8,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.singularity.appsys.common.PageUtil;
+import cn.singularity.appsys.mapper.CategoryMapper;
 import cn.singularity.appsys.mapper.DictionaryMapper;
 import cn.singularity.appsys.mapper.InfoMapper;
+import cn.singularity.appsys.pojo.Category;
 import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
 import cn.singularity.appsys.service.AppService;
@@ -24,12 +26,12 @@ public class AppServiceImpl implements AppService{
 
 	@Autowired
 	InfoMapper infoMapper;
-	
 	@Autowired
 	DictionaryMapper dictionaryMapper;
+	@Autowired
+	CategoryMapper categoryMapper;
 	
 	/**
-	 * 
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
@@ -37,12 +39,16 @@ public class AppServiceImpl implements AppService{
 		return infoMapper.getList(pageUtil);
 	}
 	
+	/**
+	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public int getCount() {
 		return infoMapper.count();
 	}
 	
+	/**
+	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public List<Dictionary> getAllStatus() {
@@ -50,10 +56,20 @@ public class AppServiceImpl implements AppService{
 		return dictionaryMapper.getAllStatuse();
 	}
 	
+	/**
+	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public List<Dictionary> getAllFlatform() {
 		return dictionaryMapper.getAllFlatform();
+	}
+	
+	/**
+	 */
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@Override
+	public List<Category> getCategoryListByParentId(Long id) {
+		return categoryMapper.getCategoryListByParentId(id);
 	}
 
 }

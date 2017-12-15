@@ -29,7 +29,6 @@ public class AppController {
 	 * 分页工具初始化
 	 * 需要抛弃的
 	 * @return
-	 * @author zh
 	 */
 	@ModelAttribute("pageUtil")
 	public PageUtil getPageUtil() {
@@ -40,7 +39,6 @@ public class AppController {
 	/**
 	 * 
 	 * @return
-	 * @author zh
 	 */
 	@RequestMapping("/app/list/{pageNo}")
 	public String list(@PathVariable String pageNo, @ModelAttribute("pageUtil")PageUtil pageUtil, Model model) {

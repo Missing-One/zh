@@ -11,7 +11,6 @@ public interface DevUserService {
 	/**
 	 * 开发者登陆功能
 	 * @return
-	 * @author zh
 	 */
 	DevUser login(DevUser devUser);
 	

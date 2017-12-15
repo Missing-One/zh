@@ -25,7 +25,6 @@ public class DevController {
 	/**
 	 * 登陆功能实现
 	 * @return
-	 * @author zh
 	 */
 	@RequestMapping("/dologin")
 	public String doLogin(DevUser devUser,Model model) {
@@ -41,7 +40,6 @@ public class DevController {
 	/**
 	 * 开发主页
 	 * @return
-	 * @author zh
 	 */
 	@RequestMapping("/main")
 	public String main () {
@@ -50,7 +48,6 @@ public class DevController {
 	/**
 	 * @param session
 	 * @return
-	 * @author zh
 	 */
 	@RequestMapping("/logout")
 	public String logout(SessionStatus session) {
