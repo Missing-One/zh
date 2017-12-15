@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 椤甸潰鎺у埗鍣�
- * 璐熻矗瀹屾垚椤甸潰鐨勮烦杞�
+ * 页面控制器
+ * 负责完成页面的跳转 
  * @author zh
  */
 @Controller
 public class PageController {
 	
 	/**
-	 * 榛樿鏍硅矾寰�璺宠浆鍒颁富椤�
-	 * @return 涓婚〉
+	 * 默认根路径,跳转到主页
+	 * @return 主页
 	 */
 	@RequestMapping("/")
 	public String index(){
@@ -22,9 +22,9 @@ public class PageController {
 	}
 	
 	/**
-	 * 浣跨敤rest椋庢牸鏉ヨ烦杞埌鐩稿簲鐨勯〉闈�
-	 * @param page	椤甸潰鐨勯�杈戣鍥惧悕
-	 * @return 椤甸潰鐨勯�杈戣鍥惧悕
+	 * 使用rest风格来跳转到相应的页面
+	 * @param page	页面的逻辑视图名
+	 * @return 页面的逻辑视图名
 	 */
 	@RequestMapping("/{page}")
 	public String page(@PathVariable String page){
