@@ -3,7 +3,8 @@ package cn.singularity.appsys.pojo;
 import java.util.Date;
 
 public class Dictionary {
-    private Long id;
+	
+	private Long id;
 
     private String typecode;
 

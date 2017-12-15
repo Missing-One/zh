@@ -33,8 +33,8 @@
 									<c:if test="${statusList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${statusList}">
-									   		<option <c:if test="${dataDictionary.valueId == queryStatus }">selected="selected"</c:if>
-									   		value="${dataDictionary.valueId}">${dataDictionary.valueName}</option>
+									   		<option <c:if test="${dataDictionary.valueid == queryStatus }">selected="selected"</c:if>
+									   		value="${dataDictionary.valueid}">${dataDictionary.valuename}</option>
 									   </c:forEach>
 									</c:if>
         						</select>
@@ -49,8 +49,8 @@
 									<c:if test="${flatFormList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${flatFormList}">
-									   		<option <c:if test="${dataDictionary.valueId == queryFlatformId }">selected="selected"</c:if>
-									   		value="${dataDictionary.valueId}">${dataDictionary.valueName}</option>
+									   		<option <c:if test="${dataDictionary.valueid == queryFlatformId }">selected="selected"</c:if>
+									   		value="${dataDictionary.valueid}">${dataDictionary.valuename}</option>
 									   </c:forEach>
 									</c:if>
         						</select>

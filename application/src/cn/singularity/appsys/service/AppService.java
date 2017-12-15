@@ -7,20 +7,20 @@ import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
 
 /**
- * app信息服务类
+ * app服务类
  * @author zh
  */
-public interface AppInfoService {
+public interface AppService {
 	
 	/**
 	 * 获取app所有信息
 	 * @return
 	 * @author zh
 	 */
-	List<Info> getList(PageUtil pageUtil);
+	List<Info> appInfoList(PageUtil pageUtil);
 	
 	/**
-	 * 获取app信息总数
+	 * 获取app的总数
 	 * @author zh
 	 */
 	int getCount();
@@ -31,4 +31,11 @@ public interface AppInfoService {
 	 * @author zh
 	 */
 	List<Dictionary> getAllStatus();
+	
+	/**
+	 * 获取所有app的所属平台
+	 * @return
+	 * @author zh
+	 */
+	List<Dictionary> getAllFlatform();
 }

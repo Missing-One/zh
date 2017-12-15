@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.singularity.appsys.common.PageUtil;
 import cn.singularity.appsys.pojo.Category;
 import cn.singularity.appsys.pojo.Info;
-import cn.singularity.appsys.service.AppInfoService;
+import cn.singularity.appsys.service.AppService;
 
 /**
  * 开发者的app管理控制器
@@ -23,26 +23,43 @@ import cn.singularity.appsys.service.AppInfoService;
 public class AppController {
 	
 	@Autowired
-	AppInfoService appInfoService;
+	AppService appService;
 	
 	/**
+	 * 分页工具初始化
+	 * 需要抛弃的
+	 * @return
+	 * @author zh
+	 */
+	@ModelAttribute("pageUtil")
+	public PageUtil getPageUtil() {
+		int count = appService.getCount();
+		System.out.println(count);
+		return new PageUtil(count);
+	}
+	/**
+	 * 
 	 * @return
 	 * @author zh
 	 */
 	@RequestMapping("/app/list/{pageNo}")
 	public String list(@PathVariable String pageNo, @ModelAttribute("pageUtil")PageUtil pageUtil, Model model) {
-		System.out.println("show list pageutil:" + pageUtil);
-		pageUtil.setCurrentPageNo(pageNo);
-		List<Info> list = appInfoService.getList(pageUtil);
 		
-		model.addAttribute("appInfoList", list);
+		pageUtil.setCurrentPageNo(pageNo);
+		model.addAttribute("appInfoList", appService.appInfoList(pageUtil));
+		
+		model.addAttribute("statusList", appService.getAllStatus());
+		model.addAttribute("flatFormList", appService.getAllFlatform());		
+		
 		return "appinfolist";
 	}
 	
-	@ModelAttribute("pageUtil")
-	public PageUtil getPageUtil() {
-		int count = appInfoService.getCount();
-		System.out.println(count);
-		return new PageUtil(count);
-	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
