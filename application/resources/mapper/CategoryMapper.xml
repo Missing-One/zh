@@ -11,6 +11,8 @@
     <result column="modifyBy" property="modifyby" jdbcType="BIGINT" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  
   <sql id="Base_Column_List" >
     id, categoryCode, categoryName, parentId, createdBy, creationTime, modifyBy, modifyDate
   </sql>
