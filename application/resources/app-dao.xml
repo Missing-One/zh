@@ -27,9 +27,9 @@
 			<property name="maxIdle" value="${maxIdle}"/>
 			<property name="minIdle" value="${minIdle}"/>
 			<property name="maxWait" value="${maxWait}"/>
-			<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/>
-			<property name="removeAbandoned" value="${removeAbandoned}"/>
-			<!-- sql 心跳 -->
+<!-- 			<property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}"/> -->
+<!-- 			<property name="removeAbandoned" value="${removeAbandoned}"/> -->
+			<!-- sql -->
 			<property name= "testWhileIdle" value="true"/>
 			<property name= "testOnBorrow" value="false"/>
 			<property name= "testOnReturn" value="false"/>
