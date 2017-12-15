@@ -1,5 +1,9 @@
 package cn.singularity.appsys.common;
 
+/**
+ * 分页工具
+ * @author zh
+ */
 public class PageUtil {
 	private long pageSize;				//显示的数量
 	private long totalCount;			//数据的总数
@@ -7,12 +11,17 @@ public class PageUtil {
 	private long currentPageNoIndex;	//当前页码的下标
 	private long totalPageCount;		//页面的中数，多少页
 	
-	
-	public PageUtil() {
+	/**
+	 * 默认一页显示8行数据
+	 * 需要提供页面总数量
+	 */
+	public PageUtil(int totalCount) {
 		super();
-		pageSize = 8;
-		currentPageNo = 1;
+		this.totalCount = totalCount;
+		this.pageSize = 8;
+		this.currentPageNo = 1;
 	}
+	
 	
 	public long getPageSize() {
 		return pageSize;
@@ -36,6 +45,14 @@ public class PageUtil {
 		this.currentPageNo = currentPageNo;
 	}
 	
+	public void setCurrentPageNo(String currentPageNo) {
+		try {
+			this.currentPageNo = Long.parseLong(currentPageNo);
+		}catch (NumberFormatException e) {
+			System.err.println("设置页码出错：" + e);
+		}
+	}
+	
 	public long getCurrentPageNoIndex() {
 		currentPageNoIndex = (currentPageNo - 1) > 0? currentPageNo - 1: 0;
 		return currentPageNoIndex * pageSize;
@@ -53,10 +70,8 @@ public class PageUtil {
 
 	@Override
 	public String toString() {
-		return "Paging [pageSize=" + pageSize + ", totalCount=" + totalCount
-				+ ", currentPageNo=" + currentPageNo + ", currentPageNoIndex="
-				+ currentPageNoIndex + ", totalPageCount=" + totalPageCount
-				+ "]";
+		return "PageUtil [pageSize=" + pageSize + ", totalCount=" + totalCount + ", currentPageNo=" + currentPageNo
+				+ ", currentPageNoIndex=" + currentPageNoIndex + ", totalPageCount=" + totalPageCount + "]";
 	}
 	
 		
