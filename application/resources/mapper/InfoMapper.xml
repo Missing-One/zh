@@ -26,18 +26,52 @@
     <result column="logoPicPath" property="logopicpath" jdbcType="VARCHAR" />
     <result column="logoLocPath" property="logolocpath" jdbcType="VARCHAR" />
     <result column="versionId" property="versionid" jdbcType="BIGINT" />
+    <association property="version" javaType="version" />
   </resultMap>
+  
+  <select id="getList" parameterType="cn.singularity.appsys.common.PageUtil" resultMap="BaseResultMap">
+  	select <include refid="All_Column_List" />,
+  			<include refid="Version_Base_Column_List" />,
+  			(select categoryName from app_category c where c.id = i.categorylevel1) as categorylevel1name,
+  			(select categoryName from app_category c where c.id = i.categorylevel2) as categorylevel2name,
+  			(select categoryName from app_category c where c.id = i.categorylevel3) as categorylevel3name,
+  			(select valueName from data_dictionary d where d.typeCode="APP_STATUS" and d.valueId = i.status) as statusname,
+  			(select valueName from data_dictionary d where d.typeCode="APP_FLATFORM" and d.valueId = i.flatformId) as flatformname
+  			
+  	from app_info i
+	left join app_version v on i.versionId = v.id
+  	
+  </select>
+  
+  <select id="count" resultType="java.lang.Integer">
+  	select count(1) from app_info 
+  </select>
+  
+  <sql id="All_Column_List" >
+    i.id, i.softwareName, i.APKName, i.supportROM, i.interfaceLanguage, i.softwareSize, i.updateDate,
+    i.devId, i.appInfo, i.status, i.onSaleDate, i.offSaleDate, i.flatformId, i.categoryLevel3, i.downloads, 
+    i.createdBy, i.creationDate, i.modifyBy, i.modifyDate, i.categoryLevel1, i.categoryLevel2, i.logoPicPath, 
+    i.logoLocPath, i.versionId
+  </sql>
+  <sql id="Version_Base_Column_List" >
+    v.id, v.appId, v.versionNo, v.versionInfo, v.publishStatus, v.downloadLink, v.versionSize, v.createdBy, 
+    v.creationDate, v.modifyBy, v.modifyDate, v.apkLocPath, v.apkFileName
+  </sql>
+  
+  
   <sql id="Base_Column_List" >
     id, softwareName, APKName, supportROM, interfaceLanguage, softwareSize, updateDate, 
     devId, appInfo, status, onSaleDate, offSaleDate, flatformId, categoryLevel3, downloads, 
     createdBy, creationDate, modifyBy, modifyDate, categoryLevel1, categoryLevel2, logoPicPath, 
     logoLocPath, versionId
   </sql>
+  
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
     from app_info
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT} limit #{currentPageNoIndex},#{pageSize}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from app_info

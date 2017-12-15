@@ -1,9 +1,25 @@
 package cn.singularity.appsys.mapper;
 
+import java.util.List;
+
+import cn.singularity.appsys.common.PageUtil;
 import cn.singularity.appsys.pojo.Info;
 
 public interface InfoMapper {
-    int deleteByPrimaryKey(Long id);
+	
+	/**
+	 * 获取app信息的总数
+	 * @author zh
+	 */
+	int count();
+	/**
+	 * 分页查询
+	 * @return
+	 * @author zh
+	 */
+	List<Info> getList(PageUtil pageUtil);
+	
+	int deleteByPrimaryKey(Long id);
 
     int insert(Info record);
 

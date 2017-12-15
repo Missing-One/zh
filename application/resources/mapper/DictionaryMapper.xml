@@ -12,6 +12,22 @@
     <result column="modifyBy" property="modifyby" jdbcType="BIGINT" />
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
   </resultMap>
+  
+  <select id="getAllStatuse" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" /> from data_dictionary
+  	where typeCode = "APP_STATUS"
+  </select>
+  <select id="getAllFlatform" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" /> from data_dictionary
+    where typeCode = "APP_FLATFORM"
+  </select>
+  
+  
+  
+  
+  
+  
+  
   <sql id="Base_Column_List" >
     id, typeCode, typeName, valueId, valueName, createdBy, creationDate, modifyBy, modifyDate
   </sql>

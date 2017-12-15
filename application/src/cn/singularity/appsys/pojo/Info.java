@@ -2,8 +2,13 @@ package cn.singularity.appsys.pojo;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Info {
+
+	public Long getVersionId() {
+        return new Long(123);
+    }
     private Long id;
 
     private String softwarename;
@@ -30,8 +35,6 @@ public class Info {
 
     private Long flatformid;
 
-    private Long categorylevel3;
-
     private Long downloads;
 
     private Long createdby;
@@ -46,13 +49,71 @@ public class Info {
 
     private Long categorylevel2;
 
+    private Long categorylevel3;
+
     private String logopicpath;
 
     private String logolocpath;
-
+    
     private Long versionid;
+    
+    private Version version;
+    
+    private String categorylevel1name;
 
-    public Long getId() {
+    private String categorylevel2name;
+
+    private String categorylevel3name;
+    
+    private String statusname;
+    private String flatformname;
+    
+	
+	@Override
+	public String toString() {
+		return "Info [id=" + id + ", softwarename=" + softwarename + ", apkname=" + apkname + ", supportrom="
+				+ supportrom + ", interfacelanguage=" + interfacelanguage + ", softwaresize=" + softwaresize
+				+ ", updatedate=" + updatedate + ", devid=" + devid + ", appinfo=" + appinfo + ", status=" + status
+				+ ", onsaledate=" + onsaledate + ", offsaledate=" + offsaledate + ", flatformid=" + flatformid
+				+ ", downloads=" + downloads + ", createdby=" + createdby + ", creationdate=" + creationdate
+				+ ", modifyby=" + modifyby + ", modifydate=" + modifydate + ", categorylevel1=" + categorylevel1
+				+ ", categorylevel2=" + categorylevel2 + ", categorylevel3=" + categorylevel3 + ", logopicpath="
+				+ logopicpath + ", logolocpath=" + logolocpath + ", versionid=" + versionid + ", version=" + version
+				+ ", categorylevel1name=" + categorylevel1name + ", categorylevel2name=" + categorylevel2name
+				+ ", categorylevel3name=" + categorylevel3name + ", statusname=" + statusname + ", flatformname="
+				+ flatformname + "]";
+	}
+	public String getStatusname() {
+		return statusname;
+	}
+	public void setStatusname(String statusname) {
+		this.statusname = statusname;
+	}
+	public String getFlatformname() {
+		return flatformname;
+	}
+	public void setFlatformname(String flatformname) {
+		this.flatformname = flatformname;
+	}
+	public String getCategorylevel1name() {
+		return categorylevel1name;
+	}
+	public void setCategorylevel1name(String categorylevel1name) {
+		this.categorylevel1name = categorylevel1name;
+	}
+	public String getCategorylevel2name() {
+		return categorylevel2name;
+	}
+	public void setCategorylevel2name(String categorylevel2name) {
+		this.categorylevel2name = categorylevel2name;
+	}
+	public String getCategorylevel3name() {
+		return categorylevel3name;
+	}
+	public void setCategorylevel3name(String categorylevel3name) {
+		this.categorylevel3name = categorylevel3name;
+	}
+	public Long getId() {
         return id;
     }
 
@@ -235,25 +296,19 @@ public class Info {
     public void setLogolocpath(String logolocpath) {
         this.logolocpath = logolocpath == null ? null : logolocpath.trim();
     }
-
+    
     public Long getVersionid() {
-        return versionid;
-    }
-
-    public void setVersionid(Long versionid) {
-        this.versionid = versionid;
-    }
-
-	@Override
-	public String toString() {
-		return "Info [id=" + id + ", softwarename=" + softwarename + ", apkname=" + apkname + ", supportrom="
-				+ supportrom + ", interfacelanguage=" + interfacelanguage + ", softwaresize=" + softwaresize
-				+ ", updatedate=" + updatedate + ", devid=" + devid + ", appinfo=" + appinfo + ", status=" + status
-				+ ", onsaledate=" + onsaledate + ", offsaledate=" + offsaledate + ", flatformid=" + flatformid
-				+ ", categorylevel3=" + categorylevel3 + ", downloads=" + downloads + ", createdby=" + createdby
-				+ ", creationdate=" + creationdate + ", modifyby=" + modifyby + ", modifydate=" + modifydate
-				+ ", categorylevel1=" + categorylevel1 + ", categorylevel2=" + categorylevel2 + ", logopicpath="
-				+ logopicpath + ", logolocpath=" + logolocpath + ", versionid=" + versionid + "]";
+		return versionid;
 	}
+	public void setVersionid(Long versionid) {
+		this.versionid = versionid;
+	}
+	public Version getVersion() {
+		return version;
+	}
+	public void setVersion(Version version) {
+		this.version = version;
+	}
+  
     
 }
