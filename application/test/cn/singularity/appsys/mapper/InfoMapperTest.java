@@ -23,7 +23,7 @@ public class InfoMapperTest {
 	@Test
 	public void test() {
 		PageUtility pageUtil = new PageUtility(20);
-		List<Info> list = infoMapper.getList(pageUtil);
+		List<Info> list = infoMapper.getList(null, pageUtil);
 		for (Info info : list) {
 			System.out.print("id:" + info.getStatus()+" = ");
 			System.out.println(info.getStatusname());
