@@ -3,6 +3,7 @@ package cn.singularity.appsys.mapper;
 import java.util.List;
 
 import cn.singularity.appsys.common.PageUtility;
+import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
 
 public interface InfoMapper {
@@ -28,4 +29,9 @@ public interface InfoMapper {
     int updateByPrimaryKeySelective(Info record);
 
     int updateByPrimaryKey(Info record);
+    
+    List<Info> getinfoList();
+    
+    
+    
 }
