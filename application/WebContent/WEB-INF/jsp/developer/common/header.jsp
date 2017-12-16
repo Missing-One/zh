@@ -31,7 +31,7 @@
 	
 	<!-- add localcss 2016-8-18 -->
 	<link href='${pageContext.request.contextPath }/statics/localcss/appinfoadd.css' rel='stylesheet'>
-	<link href='${pageContext.request.contextPath }/statics/localcss/appinfolist.css' rel='stylesheet'>
+	<link href='${pageContext.request.contextPath }/statics/localcss/appinfolist.css?' rel='stylesheet'>
 </head>
 <body class="nav-md footer_fixed">
 	<div class="container body">
@@ -81,7 +81,7 @@
 										class="fa fa-chevron-down"></span>
 								</a>
 									<ul class="nav child_menu">
-										<li><a href="${pageContext.request.contextPath }/dev/app/list/1">APP维护</a>
+										<li><a href="${pageContext.request.contextPath }/dev/app/list">APP维护</a>
 										</li>
 									</ul></li>
 							</ul>

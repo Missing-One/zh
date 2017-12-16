@@ -14,10 +14,10 @@ import cn.singularity.appsys.pojo.Info;
 public interface AppService {
 	
 	/**
-	 * 获取app所有信息
+	 * 带条件获取app所有信息
 	 * @return
 	 */
-	List<Info> appInfoList(PageUtility pageUtil);
+	List<Info> appInfoList(Info condition,PageUtility pageUtil);
 	
 	/**
 	 * 获取app的总数

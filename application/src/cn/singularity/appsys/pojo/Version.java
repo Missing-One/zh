@@ -4,7 +4,27 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Version {
-    private Long id;
+	
+	private Info app;
+	private Info publishstatusname; 
+	
+    public Info getPublishstatusname() {
+		return publishstatusname;
+	}
+
+	public void setPublishstatusname(Info publishstatusname) {
+		this.publishstatusname = publishstatusname;
+	}
+
+	public Info getApp() {
+		return app;
+	}
+
+	public void setApp(Info app) {
+		this.app = app;
+	}
+
+	private Long id;
 
     private Long appid;
 
@@ -136,10 +156,15 @@ public class Version {
 
 	@Override
 	public String toString() {
-		return "Version [id=" + id + ", appid=" + appid + ", versionno=" + versionno + ", versioninfo=" + versioninfo
-				+ ", publishstatus=" + publishstatus + ", downloadlink=" + downloadlink + ", versionsize=" + versionsize
-				+ ", createdby=" + createdby + ", creationdate=" + creationdate + ", modifyby=" + modifyby
-				+ ", modifydate=" + modifydate + ", apklocpath=" + apklocpath + ", apkfilename=" + apkfilename + "]";
+		return "Version [app=" + app + ", publishstatusname="
+				+ publishstatusname + ", id=" + id + ", appid=" + appid
+				+ ", versionno=" + versionno + ", versioninfo=" + versioninfo
+				+ ", publishstatus=" + publishstatus + ", downloadlink="
+				+ downloadlink + ", versionsize=" + versionsize
+				+ ", createdby=" + createdby + ", creationdate=" + creationdate
+				+ ", modifyby=" + modifyby + ", modifydate=" + modifydate
+				+ ", apklocpath=" + apklocpath + ", apkfilename=" + apkfilename
+				+ "]";
 	}
     
 }

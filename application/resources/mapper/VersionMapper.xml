@@ -15,7 +15,12 @@
     <result column="modifyDate" property="modifydate" jdbcType="TIMESTAMP" />
     <result column="apkLocPath" property="apklocpath" jdbcType="VARCHAR" />
     <result column="apkFileName" property="apkfilename" jdbcType="VARCHAR" />
+    <association property="app" javaType="info" />
   </resultMap>
+  
+  
+  
+  
   <sql id="Base_Column_List" >
     id, appId, versionNo, versionInfo, publishStatus, downloadLink, versionSize, createdBy, 
     creationDate, modifyBy, modifyDate, apkLocPath, apkFileName

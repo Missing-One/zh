@@ -13,14 +13,14 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="x_content">
-				<form method="post" action="list">
+				<form method="post" action="${pageContext.request.contextPath }/dev/app/list">
 					<input type="hidden" name="pageIndex" value="1" />
 			    <ul>
 					<li>
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">软件名称</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input name="querysoftwarename" type="text" class="form-control col-md-7 col-xs-12" value="${querysoftwarename }">
+								<input name="softwarename" type="text" class="form-control col-md-7 col-xs-12" value="${query.softwarename }">
 							</div>
 						</div>
 					</li>
@@ -29,11 +29,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">APP状态</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select name="queryStatus" class="form-control">
+								<select name="status" class="form-control">
 									<c:if test="${statusList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${statusList}">
-									   		<option <c:if test="${dataDictionary.valueid == queryStatus }">selected="selected"</c:if>
+									   		<option <c:if test="${dataDictionary.valueid == query.status }">selected="selected"</c:if>
 									   		value="${dataDictionary.valueid}">${dataDictionary.valuename}</option>
 									   </c:forEach>
 									</c:if>
@@ -45,11 +45,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">所属平台</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select name="queryFlatformId" class="form-control">
+								<select name="flatformid" class="form-control">
 									<c:if test="${flatFormList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${flatFormList}">
-									   		<option <c:if test="${dataDictionary.valueid == queryFlatformId }">selected="selected"</c:if>
+									   		<option <c:if test="${dataDictionary.valueid == query.flatformid }">selected="selected"</c:if>
 									   		value="${dataDictionary.valueid}">${dataDictionary.valuename}</option>
 									   </c:forEach>
 									</c:if>
@@ -61,12 +61,12 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">一级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select id="queryCategoryLevel1" name="queryCategoryLevel1" class="form-control">
+								<select id="queryCategoryLevel1" name="categorylevel1" class="form-control">
 									<c:if test="${categoryLevel1List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel1List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel1 }">selected="selected"</c:if>
-									   		value="${appCategory.id}">${appCategory.categoryName}</option>
+									   		<option <c:if test="${appCategory.id == query.categorylevel1 }">selected="selected"</c:if>
+									   		value="${appCategory.id}">${appCategory.categoryname}</option>
 									   </c:forEach>
 									</c:if>
         						</select>
@@ -78,11 +78,11 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">二级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 							<input type="hidden" name="categorylevel2list" id="categorylevel2list"/>
-        						<select name="queryCategoryLevel2" id="queryCategoryLevel2" class="form-control">
+        						<select name="categorylevel2" id="queryCategoryLevel2" class="form-control">
         							<c:if test="${categoryLevel2List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel2List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel2 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == query.categorylevel2 }">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>
@@ -94,11 +94,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">三级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-        						<select name="queryCategoryLevel3" id="queryCategoryLevel3" class="form-control">
+        						<select name="categorylevel3" id="queryCategoryLevel3" class="form-control">
         							<c:if test="${categoryLevel3List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel3List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel3 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == query.categorylevel3 }">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>
@@ -261,5 +261,5 @@
 </div>
 </div>
 <%@include file="common/footer.jsp"%>
-<script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
-<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist.js"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js?r=<%=Math.random()%>"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist.js?r=<%=Math.random()%>"></script>

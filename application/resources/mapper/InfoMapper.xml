@@ -29,7 +29,7 @@
     <association property="version" javaType="version" />
   </resultMap>
   
-  <select id="getList" parameterType="cn.singularity.appsys.common.PageUtility" resultMap="BaseResultMap">
+  <select id="getList" resultMap="BaseResultMap">
   	select <include refid="All_Column_List" />,
   			<include refid="Version_Base_Column_List" />,
   			(select categoryName from app_category c where c.id = i.categorylevel1) as categorylevel1name,
@@ -40,8 +40,19 @@
   			
   	from app_info i
 	left join app_version v on i.versionId = v.id
-  	
+	<where>
+		<if test="info != null and info.softwarename != null and info.softwarename !=''">i.softwareName = #{info.softwarename}</if>
+		<if test="info != null and info.status != null">and i.status = #{info.status}</if>
+		<if test="info != null and info.flatformid != null">and  i.flatformId = #{info.flatformid}</if>
+		<if test="info != null and info.categorylevel1 != null">and i.categoryLevel1 = #{info.categorylevel1}</if>
+		<if test="info != null and info.categorylevel2 != null">and i.categoryLevel2 = #{info.categorylevel2}</if>
+		<if test="info != null and info.categorylevel3 != null">and i.categoryLevel3 = #{info.categorylevel3}</if>
+	</where>
+  	limit #{pageUtility.currentPageNoIndex},#{pageUtility.pageSize}
   </select>
+  
+  
+  
   
   <select id="count" resultType="java.lang.Integer">
   	select count(1) from app_info 
