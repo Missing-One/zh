@@ -4,7 +4,7 @@ package cn.singularity.appsys.common;
  * 分页工具
  * @author zh
  */
-public class PageUtil {
+public class PageUtility {
 	private long pageSize;				//显示的数量
 	private long totalCount;			//数据的总数
 	private long currentPageNo;			//当前页码
@@ -15,7 +15,7 @@ public class PageUtil {
 	 * 默认一页显示8行数据
 	 * 需要提供页面总数量
 	 */
-	public PageUtil(int totalCount) {
+	public PageUtility(int totalCount) {
 		super();
 		this.totalCount = totalCount;
 		this.pageSize = 8;

@@ -2,7 +2,7 @@ package cn.singularity.appsys.service;
 
 import java.util.List;
 
-import cn.singularity.appsys.common.PageUtil;
+import cn.singularity.appsys.common.PageUtility;
 import cn.singularity.appsys.pojo.Category;
 import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
@@ -17,7 +17,7 @@ public interface AppService {
 	 * 获取app所有信息
 	 * @return
 	 */
-	List<Info> appInfoList(PageUtil pageUtil);
+	List<Info> appInfoList(PageUtility pageUtil);
 	
 	/**
 	 * 获取app的总数

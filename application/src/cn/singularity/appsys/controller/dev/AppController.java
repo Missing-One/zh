@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cn.singularity.appsys.common.PageUtil;
+import cn.singularity.appsys.common.PageUtility;
 import cn.singularity.appsys.pojo.Category;
 import cn.singularity.appsys.pojo.Info;
 import cn.singularity.appsys.service.AppService;
@@ -31,17 +31,18 @@ public class AppController {
 	 * @return
 	 */
 	@ModelAttribute("pageUtil")
-	public PageUtil getPageUtil() {
+	public PageUtility getPageUtil() {
 		int count = appService.getCount();
 		System.out.println(count);
-		return new PageUtil(count);
+		return new PageUtility(count);
 	}
+	
 	/**
-	 * 
+	 * app信息显示页
 	 * @return
 	 */
 	@RequestMapping("/app/list/{pageNo}")
-	public String list(@PathVariable String pageNo, @ModelAttribute("pageUtil")PageUtil pageUtil, Model model) {
+	public String list(@PathVariable String pageNo, @ModelAttribute("pageUtil")PageUtility pageUtil, Model model) {
 		
 		pageUtil.setCurrentPageNo(pageNo);
 		model.addAttribute("appInfoList", appService.appInfoList(pageUtil));
@@ -52,8 +53,18 @@ public class AppController {
 		return "appinfolist";
 	}
 	
-	
-	
+	/**
+	 * 各项分类获取
+	 * 跟据父级分类编号parentid
+	 * @return
+	 */
+	@RequestMapping("/ctg/{id}.json")
+	public String getCategory(@PathVariable Long id) {
+		List<Category> list = appService.getCategoryListByParentId(id);
+		
+		
+		return "";
+	}
 	
 	
 	

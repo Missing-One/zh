@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.singularity.appsys.common.PageUtil;
+import cn.singularity.appsys.common.PageUtility;
 import cn.singularity.appsys.mapper.CategoryMapper;
 import cn.singularity.appsys.mapper.DictionaryMapper;
 import cn.singularity.appsys.mapper.InfoMapper;
@@ -35,7 +35,7 @@ public class AppServiceImpl implements AppService{
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
-	public List<Info> appInfoList(PageUtil pageUtil) {
+	public List<Info> appInfoList(PageUtility pageUtil) {
 		return infoMapper.getList(pageUtil);
 	}
 	
