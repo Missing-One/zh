@@ -17,13 +17,16 @@
   	select <include refid="Base_Column_List" /> from data_dictionary
   	where typeCode = "APP_STATUS"
   </select>
+  
+  
   <select id="getAllFlatform" resultMap="BaseResultMap">
     select <include refid="Base_Column_List" /> from data_dictionary
     where typeCode = "APP_FLATFORM"
   </select>
   
-  
-  
+    <select id="getAllPlatform" resultMap="BaseResultMap">
+   SELECT valueId,valueName FROM data_dictionary   WHERE typeCode = "APP_FLATFORM"
+  </select>
   
   
   

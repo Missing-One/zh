@@ -9,7 +9,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.singularity.appsys.common.PageUtil;
+import cn.singularity.appsys.common.PageUtility;
 import cn.singularity.appsys.pojo.Info;
 
 public class InfoMapperTest {
@@ -22,8 +22,8 @@ public class InfoMapperTest {
 	static InfoMapper infoMapper;
 	@Test
 	public void test() {
-		PageUtil pageUtil = new PageUtil(20);
-		List<Info> list = infoMapper.getList(pageUtil);
+		PageUtility pageUtil = new PageUtility(20);
+		List<Info> list = infoMapper.getList(null, pageUtil);
 		for (Info info : list) {
 			System.out.print("id:" + info.getStatus()+" = ");
 			System.out.println(info.getStatusname());

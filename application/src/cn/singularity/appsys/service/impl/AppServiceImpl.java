@@ -35,8 +35,8 @@ public class AppServiceImpl implements AppService{
 	 */
 	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
-	public List<Info> appInfoList(PageUtility pageUtil) {
-		return infoMapper.getList(pageUtil);
+	public List<Info> appInfoList(Info info, PageUtility pageUtil) {
+		return infoMapper.getList(info,pageUtil);
 	}
 	
 	/**

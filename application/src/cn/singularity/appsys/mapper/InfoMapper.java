@@ -2,7 +2,10 @@ package cn.singularity.appsys.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import cn.singularity.appsys.common.PageUtility;
+import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
 
 public interface InfoMapper {
@@ -15,7 +18,7 @@ public interface InfoMapper {
 	 * 分页查询
 	 * @return
 	 */
-	List<Info> getList(PageUtility ageUtility);
+	List<Info> getList(@Param("info") Info info,  @Param("pageUtility") PageUtility pageUtility);
 	
 	int deleteByPrimaryKey(Long id);
 
@@ -28,4 +31,9 @@ public interface InfoMapper {
     int updateByPrimaryKeySelective(Info record);
 
     int updateByPrimaryKey(Info record);
+    
+    List<Info> getinfoList();
+    
+    
+    
 }
