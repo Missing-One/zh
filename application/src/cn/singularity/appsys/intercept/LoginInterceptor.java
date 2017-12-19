@@ -23,15 +23,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		User devUser = (User)request.getSession().getAttribute("loggedDevUser");
 		//System.out.println("username" + username + " -- devUsername" + devUsername);
 		
-		if (user != null || user.getId() == null) {
+//		if (user == null || user.getId() == null) {
 //			request.getRequestDispatcher("/WEB-INF/jsp/backendlogin.jsp").forward(request, response);
-			response.sendRedirect("/back-login");
-			return false;
-		} else if (devUser != null || devUser.getId() == null) {
+//			response.sendRedirect("/back-login");
+//			return false;
+//		} else if (devUser == null || devUser.getId() == null) {
 //			request.getRequestDispatcher("/WEB-INF/jsp/devlogin.jsp").forward(request, response);
-			response.sendRedirect("/dev-login");
-			return false;
-		}
+//			response.sendRedirect("/dev-login");
+//			return false;
+//		}
 		return true;
 	}
 	
