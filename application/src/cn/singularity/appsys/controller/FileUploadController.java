@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-@Controller
+/**
+ * 这个控制器作为信息查看
+ * @author zh
+ */
 public class FileUploadController {
 	
 	
