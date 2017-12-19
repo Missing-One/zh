@@ -33,6 +33,18 @@ public class PageController {
 		return page;
 	}
 	
+	@RequestMapping("/dev/{page}")
+	public String devPage(@PathVariable String page){
+		System.out.println("page:" + page);
+		return page;
+	}
+	@RequestMapping("/back/{page}")
+	public String backPage(@PathVariable String page){
+		System.out.println("page:" + page);
+		return page;
+	}
+	
+	
 	/**
 	 * @return
 	 */
