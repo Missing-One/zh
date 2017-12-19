@@ -23,7 +23,7 @@ public class PageController {
 	}
 	
 	/**
-	 * 使用rest风格来跳转到相应的页面
+	 * 使用风格来跳转到相应的页面
 	 * @param page	页面的逻辑视图名
 	 * @return 页面的逻辑视图名
 	 */
