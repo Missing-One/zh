@@ -18,16 +18,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		String username = (String)request.getSession().getAttribute("username");
 		String devUsername = (String)request.getSession().getAttribute("devUsername");
-//		System.out.println("username" + username + " -- devUsername" + devUsername);
-//		if (username == null) {
-////			request.getRequestDispatcher("/WEB-INF/jsp/backendlogin.jsp").forward(request, response);
-//			response.sendRedirect("/back-login");
-//			return false;
-//		} else if (devUsername == null) {
-////			request.getRequestDispatcher("/WEB-INF/jsp/devlogin.jsp").forward(request, response);
-//			response.sendRedirect("/dev-login");
-//			return false;
-//		}
+		System.out.println("username" + username + " -- devUsername" + devUsername);
+		if (username == null) {
+//			request.getRequestDispatcher("/WEB-INF/jsp/backendlogin.jsp").forward(request, response);
+			response.sendRedirect("/back-login");
+			return false;
+		} else if (devUsername == null) {
+//			request.getRequestDispatcher("/WEB-INF/jsp/devlogin.jsp").forward(request, response);
+			response.sendRedirect("/dev-login");
+			return false;
+		}
 		return true;
 	}
 	
