@@ -16,6 +16,8 @@
   <sql id="Base_Column_List" >
     id, categoryCode, categoryName, parentId, createdBy, creationTime, modifyBy, modifyDate
   </sql>
+
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />

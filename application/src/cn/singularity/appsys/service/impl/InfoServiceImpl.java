@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import cn.singularity.appsys.common.PageUtility;
 import cn.singularity.appsys.mapper.InfoMapper;
 import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
@@ -23,6 +24,19 @@ public class InfoServiceImpl implements InfoService {
 	public List<Info> getinfoList() {
 
 		return infomapper.getinfoList();
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.SUPPORTS)
+	public List<Info> getAppselect(Info info, PageUtility pageUtility) {
+
+		return infomapper.getAppselect(info, pageUtility);
+	}
+
+	@Override
+	public int getAppCount() {
+		
+		return infomapper.count();
 	}
 
 		

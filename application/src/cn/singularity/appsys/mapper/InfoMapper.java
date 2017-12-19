@@ -34,6 +34,7 @@ public interface InfoMapper {
     
     List<Info> getinfoList();
     
+    List<Info> getAppselect(@Param("info") Info info, @Param("pageUtility")PageUtility pageUtility ); 
     
     
 }

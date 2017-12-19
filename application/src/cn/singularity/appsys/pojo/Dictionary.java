@@ -1,9 +1,10 @@
 package cn.singularity.appsys.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Dictionary {
-	
+public class Dictionary implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private Long id;
 
     private String typecode;

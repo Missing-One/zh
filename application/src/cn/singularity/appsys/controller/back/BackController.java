@@ -1,39 +1,35 @@
 package cn.singularity.appsys.controller.back;
 
 import java.util.List;
-import java.util.Map;
-
-
-
-
-
-
-
-
-
-
-
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import cn.singularity.appsys.pojo.DevUser;
+
+
+
+
+
+
+import com.alibaba.fastjson.JSONObject;
+
+import cn.singularity.appsys.common.PageUtility;
+import cn.singularity.appsys.mapper.CategoryMapper;
+import cn.singularity.appsys.pojo.Category;
 import cn.singularity.appsys.pojo.Dictionary;
 import cn.singularity.appsys.pojo.Info;
 import cn.singularity.appsys.pojo.User;
 import cn.singularity.appsys.service.AppService;
 import cn.singularity.appsys.service.InfoService;
 import cn.singularity.appsys.service.UserService;
-import cn.singularity.appsys.service.impl.AppServiceImpl;
 
 /**
  * 后台管理基本模块
@@ -41,7 +37,7 @@ import cn.singularity.appsys.service.impl.AppServiceImpl;
  */
 @Controller
 @RequestMapping("/back/")
-@SessionAttributes({"loggedUser"})
+@SessionAttributes({"loggedUser","appInfoList","flatFormList","categoryLevel1List"})
 public class BackController {
 	
 	@Autowired
@@ -93,37 +89,46 @@ public class BackController {
 	}
 	
 	/**
-	 *@author YJ
+	 *@author YJ,xh
 	 */
 	@RequestMapping("/app/list")
-	public String appinfo(HttpSession session){
+	public String appinfo(Model model){
 		List<Info> list=infoService.getinfoList();
-		session.setAttribute("appInfoList", list);
+		model.addAttribute("appInfoList", list);
 		List<Dictionary> list2=appService.getAllFlatform();
-		session.setAttribute("flatFormList", list2);
+		model.addAttribute("flatFormList", list2);
+		List<Category> list3=appService.getCategoryListByParentId(null);
+		model.addAttribute("categoryLevel1List",list3);
 		return "applist";
 		
 	}
-	
-	
 
-	@RequestMapping(value="/categorylevellist")
+	@RequestMapping({"/categorylevellist"})
 	@ResponseBody
-	public String bindSelect(String pid){
-		System.out.println("pid"+"========="+pid);
+	public String bindl2(String pid){
+		List<Category> list = appService.getCategoryListByParentId(pid.equals("null")? null: Long.parseLong(pid));
+		String jsonString = JSONObject.toJSONString(list);
+		System.out.println("jsonStr" + jsonString);
+		return jsonString;
+	}
+
+	@RequestMapping("/app/listselect")	
+	public String getselect(Model model,Info info,PageUtility pageUtility, String pageIndex){
+		//数量
+		System.out.println("pageUtility" + pageUtility);
+		System.out.println(pageUtility);
+		pageUtility.setTotalCount(infoService.getAppCount());
+		pageUtility.setCurrentPageNo(pageIndex);
+
+		List<Info> list=infoService.getAppselect(info,pageUtility);
+		model.addAttribute("appInfoList", list);
+		model.addAttribute("queryCondition", info);
+		System.out.println(list.size());
+		model.addAttribute("pages", pageUtility);
 		
-		
+		model.addAttribute("flatFormList", appService.getAllFlatform());
+		model.addAttribute("categoryLevel1List",appService.getCategoryListByParentId(null));
 		
 		return "applist";
-		
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 }

@@ -1,10 +1,17 @@
 package cn.singularity.appsys.pojo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class Info {
+public class Info implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 
 	public Long getVersionId() {
         return new Long(123);

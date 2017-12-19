@@ -1,8 +1,11 @@
 package cn.singularity.appsys.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Promotion {
+public class Promotion implements Serializable{
+	private static final long serialVersionUID = 1L;
+
     private Long id;
 
     private Long appid;

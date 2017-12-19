@@ -11,6 +11,14 @@ public class PageUtility {
 	private long currentPageNoIndex;	//当前页码的下标
 	private long totalPageCount;		//页面的中数，多少页
 	
+	
+	public PageUtility() {
+		super();
+		this.pageSize = 8;
+		this.currentPageNo = 1;
+	}
+
+
 	/**
 	 * 默认一页显示8行数据
 	 * 需要提供页面总数量

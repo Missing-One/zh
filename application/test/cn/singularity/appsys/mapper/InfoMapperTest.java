@@ -23,11 +23,11 @@ public class InfoMapperTest {
 	@Test
 	public void test() {
 		PageUtility pageUtil = new PageUtility(20);
-		List<Info> list = infoMapper.getList(null, pageUtil);
-		for (Info info : list) {
-			System.out.print("id:" + info.getStatus()+" = ");
-			System.out.println(info.getStatusname());
-			System.out.println(info.getFlatformname());
+		Info info = new Info();
+//		info.setFlatformid((long) 3);
+		List<Info> list = infoMapper.getAppselect(info,pageUtil);
+		for (Info info2 : list) {
+			System.out.println(info2.getFlatformid());
 		}
 	}
 
