@@ -2,6 +2,7 @@ package cn.singularity.appsys.mapper;
 
 import static org.junit.Assert.*;
 
+import java.io.File;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -26,9 +27,11 @@ public class CategoryMapperTest {
 	@Test
 	public void test() {
 		List<Category> list = catMapper.getCategoryListByParentId(null);
-		for (Category category : list) {
-			System.out.println(category.getCategoryname());
-		}
+//		for (Category category : list) {
+//			System.out.println(category.getCategoryname());
+//		}
+		String workPath = System.class.getClassLoader().getResource(File.separator).getPath();
+		System.out.println(workPath);
 	}
 
 }

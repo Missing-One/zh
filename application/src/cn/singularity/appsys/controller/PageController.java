@@ -3,6 +3,7 @@ package cn.singularity.appsys.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 页面控制器
@@ -46,5 +47,14 @@ public class PageController {
 	@RequestMapping("/back-login")
 	public String backend_login(){
 		return "backendlogin";
+	}
+	
+	/**
+	 * @return
+	 */
+	@RequestMapping("/favicon")
+	@ResponseBody
+	public String igno(){
+		return "";
 	}
 }

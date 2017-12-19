@@ -20,9 +20,11 @@ public class VersionMapperTest {
 	@Test
 	public void test() {
 		
-		for (Version v : versionMapper.selectVersionList()) {
-			System.out.println(v);
+		for (Version v : versionMapper.selectVersionListByAppId(56)) {
+			System.out.println(v.getPublishstatusname());
 		}
 	}
+	
+	
 
 }

@@ -6,13 +6,13 @@ import java.util.Date;
 public class Version {
 	
 	private Info app;
-	private Info publishstatusname; 
+	private String publishstatusname; 
 	
-    public Info getPublishstatusname() {
+    public String getPublishstatusname() {
 		return publishstatusname;
 	}
 
-	public void setPublishstatusname(Info publishstatusname) {
+	public void setPublishstatusname(String publishstatusname) {
 		this.publishstatusname = publishstatusname;
 	}
 

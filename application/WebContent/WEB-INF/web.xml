@@ -33,6 +33,28 @@
 	</servlet-mapping>
 	<!-- springMVC 过滤器配置  END -->
 	
+	<!-- rest支持 BEGIN-->
+<!-- 	org.springframework.web.multipart.support.MultipartFilter -->
+<!-- 	<filter> -->
+<!-- 		<filter-name>restFileFilter</filter-name> -->
+<!--         <filter-class>cn.singularity.appsys.intercept.RestFileFilter</filter-class> -->
+<!-- 	</filter> -->
+<!-- 	<filter-mapping> -->
+<!-- 	 	<filter-name>restFileFilter</filter-name> -->
+<!-- <!        <url-pattern>/*</url-pattern> --> 
+<!-- 		<servlet-name>springMVC</servlet-name> -->
+<!-- 	</filter-mapping> -->
+	<filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+<!-- <!         <servlet-name>/*</servlet-name>  -->
+		<servlet-name>springMVC</servlet-name>
+    </filter-mapping>
+  	<!-- rest支持 END -->
+  	
 	<!-- 乱码过滤器 -->
 	<filter>				
 		<filter-name>springUtf8Encoding</filter-name>

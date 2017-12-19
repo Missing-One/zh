@@ -14,10 +14,9 @@ import cn.singularity.appsys.pojo.Info;
 import cn.singularity.appsys.service.InfoService;
 @Service
 public class InfoServiceImpl implements InfoService {
-		@Autowired
-		private	InfoMapper infomapper;
-		
-		
+	
+	@Autowired
+	private	InfoMapper infomapper;
 	
 	@Override
 	@Transactional(propagation = Propagation.SUPPORTS)

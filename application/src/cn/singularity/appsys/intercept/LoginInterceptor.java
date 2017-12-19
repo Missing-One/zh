@@ -18,7 +18,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		String username = (String)request.getSession().getAttribute("username");
 		String devUsername = (String)request.getSession().getAttribute("devUsername");
-		System.out.println("username" + username + " -- devUsername" + devUsername);
+//		System.out.println("username" + username + " -- devUsername" + devUsername);
 //		if (username == null) {
 ////			request.getRequestDispatcher("/WEB-INF/jsp/backendlogin.jsp").forward(request, response);
 //			response.sendRedirect("/back-login");

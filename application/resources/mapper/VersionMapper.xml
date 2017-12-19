@@ -19,7 +19,10 @@
   </resultMap>
   
   
-  
+  <delete id="deleteVersionListByAppId"  parameterType="java.lang.Long">
+   	delete from app_version
+    where appId = #{id,jdbcType=BIGINT}
+  </delete>
   
   <sql id="Base_Column_List" >
     id, appId, versionNo, versionInfo, publishStatus, downloadLink, versionSize, createdBy, 
@@ -27,8 +30,9 @@
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
-    <include refid="Base_Column_List" />
-    from app_version
+    <include refid="Base_Column_List" />,
+    (SELECT valueName FROM data_dictionary d WHERE d.typeCode = 'APP_STATUS' and d.valueId = v.publishStatus ) publishstatusname
+    from app_version v
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >

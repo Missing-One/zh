@@ -20,6 +20,12 @@ public interface AppService {
 	List<Info> appInfoList(Info condition,PageUtility pageUtil);
 	
 	/**
+	 * 根据id获取app信息
+	 * @return
+	 */
+	Info getAppInfoById(Long id);
+	
+	/**
 	 * 获取app的总数
 	 */
 	int getCount();
@@ -43,4 +49,19 @@ public interface AppService {
 	 * @return
 	 */
 	List<Category> getCategoryListByParentId(Long id);
+	
+	/**
+	 * 添加app信息
+	 * @param app
+	 */
+	boolean addApp(Info app);
+	
+	/**
+	 * 根据id删除app信息
+	 * @param id
+	 * @return
+	 */
+	int delAppInfoById(Long id);
+
+	int modifyAppInfoById(Info app);
 }

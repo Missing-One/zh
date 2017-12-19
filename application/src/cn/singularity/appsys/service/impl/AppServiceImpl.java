@@ -71,5 +71,34 @@ public class AppServiceImpl implements AppService{
 	public List<Category> getCategoryListByParentId(Long id) {
 		return categoryMapper.getCategoryListByParentId(id);
 	}
+	
+	/**
+	 * 添加一条app信息
+	 */
+	@Transactional(propagation = Propagation.REQUIRED,rollbackFor = Throwable.class)
+	@Override
+	public boolean addApp(Info app) {
+		
+		return infoMapper.insert(app) > 0;
+	}
+	@Transactional(propagation = Propagation.SUPPORTS)
+	@Override
+	public Info getAppInfoById(Long id) {
+		// TODO Auto-generated method stub
+		return infoMapper.selectByPrimaryKey(id);
+	}
+	
+	@Transactional(propagation = Propagation.REQUIRED,rollbackFor = Throwable.class)
+	@Override
+	public int delAppInfoById(Long id) {
+		
+		return infoMapper.deleteByPrimaryKey(id);
+	}
+	@Transactional(propagation = Propagation.REQUIRED,rollbackFor = Throwable.class)
+	@Override
+	public int modifyAppInfoById(Info app) {
+		// TODO Auto-generated method stub
+		return infoMapper.updateByPrimaryKeySelective(app);
+	}
 
 }

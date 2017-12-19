@@ -7,13 +7,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileUploadController {
 	
-	@RequestMapping("/dev/app/addversionsave")
+	
+	@RequestMapping(value="/fileupload" )
 	public void upload(@RequestParam("a_downloadLink") MultipartFile uploadFile,HttpSession seesion) throws Exception{
 		String path = seesion.getServletContext().getRealPath(File.separator + "statics" + File.separator + "uploadfiles" );
 		System.out.println(path);
@@ -22,6 +24,8 @@ public class FileUploadController {
 			file.mkdirs();
 		}
 		uploadFile.transferTo(file);
+		
 	}
+	
 	
 }
