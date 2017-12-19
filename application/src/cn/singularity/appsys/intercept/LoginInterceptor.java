@@ -19,8 +19,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		DevUser user = (DevUser)request.getSession().getAttribute("loggedUser");
-		User devUser = (User)request.getSession().getAttribute("loggedDevUser");
+//		DevUser user = (DevUser)request.getSession().getAttribute("loggedUser");
+//		User devUser = (User)request.getSession().getAttribute("loggedDevUser");
 		//System.out.println("username" + username + " -- devUsername" + devUsername);
 		
 //		if (user == null || user.getId() == null) {
