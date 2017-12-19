@@ -5,6 +5,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import cn.singularity.appsys.pojo.DevUser;
+import cn.singularity.appsys.pojo.User;
+
 /**
  * 登陆拦截器
  * 负责拦截后台管理员或者开发者操作时的登陆验证
@@ -16,14 +19,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		String username = (String)request.getSession().getAttribute("username");
-		String devUsername = (String)request.getSession().getAttribute("devUsername");
-		System.out.println("username" + username + " -- devUsername" + devUsername);
-		if (username == null) {
+		DevUser user = (DevUser)request.getSession().getAttribute("loggedUser");
+		User devUser = (User)request.getSession().getAttribute("loggedDevUser");
+		//System.out.println("username" + username + " -- devUsername" + devUsername);
+		
+		if (user != null || user.getId() == null) {
 //			request.getRequestDispatcher("/WEB-INF/jsp/backendlogin.jsp").forward(request, response);
 			response.sendRedirect("/back-login");
 			return false;
-		} else if (devUsername == null) {
+		} else if (devUser != null || devUser.getId() == null) {
 //			request.getRequestDispatcher("/WEB-INF/jsp/devlogin.jsp").forward(request, response);
 			response.sendRedirect("/dev-login");
 			return false;
