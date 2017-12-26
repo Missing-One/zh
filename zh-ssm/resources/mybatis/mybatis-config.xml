@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+<!--STDOUT_LOGGING-->
+  	<setting name="logImpl" value="LOG4j2"/>
+  	<setting name="autoMappingBehavior" value="FULL"/>
+  </settings>
+  <typeAliases>
+<!--   	<typeAlias type="" alias=""/> -->
+<!-- 	<package name=""/> -->
+  </typeAliases>
+  
+</configuration>
