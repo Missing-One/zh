@@ -30,7 +30,7 @@
         <!-- 配置连接池属性 -->
         <property name="driverClassName" value="${driver-class-name}" />
         <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
+        <property name="username" value="${uname}" />
         <property name="password" value="${password}" />
         <!-- 初始化连接大小 -->
 		<property name="initialSize" value="${initialSize}"></property>
